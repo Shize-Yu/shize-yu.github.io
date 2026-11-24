@@ -1,0 +1,5 @@
+/* The reference theme remains unchanged. Only portrait framing and keyboard access are adjusted. */
+.author__avatar img { aspect-ratio:1; object-fit:cover; object-position:center 18%; }
+button:focus-visible,a:focus-visible,summary:focus-visible { outline:3px solid #3498db; outline-offset:4px; }
+.ra-modal[aria-hidden="true"] { visibility:hidden; }
+.ra-modal.is-open { visibility:visible; }
