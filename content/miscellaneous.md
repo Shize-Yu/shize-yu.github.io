@@ -1,16 +1,6 @@
 <h1 id="miscellaneous">🌱 Miscellaneous</h1>
 
-## Research Interests
-
-Protein design, protein engineering, directed evolution, and generative protein design.
-
-## Technical Skills
-
-- **Programming and modeling:** Python, PyTorch, Transformers, generative models, reinforcement learning, and LLM fine-tuning and inference.
-- **Biological data:** large-scale data cleaning, MMseqs2, and Foldseek.
-- **Scientific communication:** LaTeX manuscript writing and scientific figure preparation.
-
-## Mathematical Modeling
+## Competitions
 
 __MCM_AWARD__
 
