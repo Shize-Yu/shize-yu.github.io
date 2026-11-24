@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>__PAGE_TITLE__</title>
+<meta content="True" name="HandheldFriendly"/>
+<meta content="320" name="MobileOptimized"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<head>
+<base target="_blank"/>
+</head>
+<link href="/assets/css/academicons.css" rel="stylesheet"/>
+<meta content="Shize Yu is a Software Engineering undergraduate at Huazhong University of Science and Technology researching AI for protein design, engineering, and directed evolution." name="description"/><link href="/assets/css/custom.css" rel="stylesheet"/><link href="/images/favicon.svg" rel="icon" type="image/svg+xml"/></head>
+<body>
+<div class="masthead">
+<div class="masthead__inner-wrap">
+<div class="masthead__menu">
+<nav class="greedy-nav" id="site-nav">
+<button aria-expanded="false" aria-label="Toggle navigation"><div class="navicon"></div></button>
+<ul class="visible-links">
+<li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="/#about-me">Homepage</a></li>
+<li class="masthead__menu-item"><a href="/#about-me">About Me</a></li>
+<li class="masthead__menu-item"><a href="/files/Shize_Yu_Public_CV.pdf">CV</a></li>
+<li class="masthead__menu-item"><a href="/#-educations">Educations</a></li>
+<li class="masthead__menu-item"><a href="/#-news">News</a></li>
+<li class="masthead__menu-item"><a href="/#-selected-publications">Selected Publications</a></li>
+<li class="masthead__menu-item"><a href="/#-experience">Experience</a></li>
+<li class="masthead__menu-item"><a href="/#-service">Service</a></li>
+<li class="masthead__menu-item"><a href="/miscellaneous/">Miscellaneous</a></li>
+</ul>
+<ul class="hidden-links hidden"></ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="main" role="main">
+<div class="sidebar sticky">
+<div class="profile_box" itemscope="" itemtype="http://schema.org/Person">
+<div class="author__avatar">
+<img alt="Shize Yu" class="author__avatar" src="/images/shize-yu.jpeg"/>
+</div>
+<div class="author__content">
+<h3 class="author__name">Shize Yu</h3>
+<p class="author__bio"></p>
+</div>
+<div class="author__urls-wrapper"><ul class="author__urls social-icons">
+<li><div style="white-space:normal;margin-bottom:1em;">Undergraduate student focusing on AI for protein design</div></li>
+<li><i aria-hidden="true" class="fa fa-fw fa-map-marker"></i> Wuhan, China</li>
+<li><a href="mailto:u202417333@hust.edu.cn"><i aria-hidden="true" class="fas fa-fw fa-envelope"></i> Email</a></li><li><a href="mailto:18062520917@163.com"><i aria-hidden="true" class="fas fa-fw fa-envelope"></i> Personal Email</a></li>
+<li><a href="https://github.com/Shize-Yu"><i aria-hidden="true" class="fab fa-fw fa-github"></i> GitHub</a></li>
+<li><a href="https://scholar.google.com/citations?user=jhlvw6sAAAAJ&amp;hl=en"><i aria-hidden="true" class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
+<li><a href="https://orcid.org/0009-0005-0448-9055"><i aria-hidden="true" class="ai ai-orcid-square ai-fw"></i> ORCID</a></li></ul>
+<div class="author__urls_sm"><a aria-label="Email" href="mailto:u202417333@hust.edu.cn"><i aria-hidden="true" class="fas fa-fw fa-envelope"></i></a><a aria-label="GitHub" href="https://github.com/Shize-Yu"><i aria-hidden="true" class="fab fa-fw fa-github"></i></a><a aria-label="Google Scholar" href="https://scholar.google.com/citations?user=jhlvw6sAAAAJ&amp;hl=en"><i aria-hidden="true" class="fas fa-fw fa-graduation-cap"></i></a><a aria-label="ORCID" href="https://orcid.org/0009-0005-0448-9055"><i aria-hidden="true" class="ai ai-orcid-square ai-fw"></i></a></div><div class="visitor-map"><a href="https://mapmyvisitors.com/web/1c9mv" title="Visit tracker"><img alt="Visit tracker map" loading="lazy" src="https://mapmyvisitors.com/map.png?d=P-B_ZrXAJe_gQ-ojhUHnI5zKKVNEvm7DZOqIGrAxQuw&amp;cl=ffffff"/></a></div></div>
+</div>
+</div>
+<article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+<div class="page__inner-wrap">
+<section class="page__content" itemprop="text">__PAGE_CONTENT__</section>
+</div>
+</article>
+</div>
+<script src="/assets/js/main.min.js"></script>
+<script>
+/*
+ * In-page navigation.
+ *
+ * Internal page links swap the article body instead of making the browser load a
+ * whole new document, so moving between the homepage, Blog and Miscellaneous has
+ * no reload flash. The address bar, document title, back/forward and scroll
+ * position all behave exactly as they would with real navigations.
+ *
+ * Every unusual case falls back to a normal browser navigation: modified clicks,
+ * new-tab links, cross-origin URLs, non-page targets (the CV pdf), failed
+ * requests, or a response whose markup does not match this layout. Nothing here
+ * is required for the site to work — remove the include and links behave normally.
+ */
+(function () {
+  var CONTENT = '.page__content';
+
+  if (!window.history || !window.history.pushState || !window.fetch ||
+      !window.DOMParser || !window.CustomEvent || !document.querySelector(CONTENT)) {
+    return;
+  }
+
+  var cache = {};            // static site, so a fetched page stays valid for the session
+  var pending = 0;           // guards against a slow request landing after a newer click
+  var currentPath = location.pathname;
+
+  function isSwappable(url) {
+    if (url.origin !== location.origin) { return false; }
+    // Only real pages. Keeps the CV pdf and any other asset on the browser.
+    return /(\/|\.html)$/.test(url.pathname);
+  }
+
+  // Scripts inserted through innerHTML never execute, so recreate them.
+  function runScripts(container) {
+    var scripts = container.querySelectorAll('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var old = scripts[i];
+      var fresh = document.createElement('script');
+      for (var j = 0; j < old.attributes.length; j++) {
+        fresh.setAttribute(old.attributes[j].name, old.attributes[j].value);
+      }
+      fresh.text = old.textContent;
+      old.parentNode.replaceChild(fresh, old);
+    }
+  }
+
+  function afterSwap(container, hash, restore) {
+    // A modal or photo viewer left open on the previous page took its markup with
+    // it, but the scroll lock lives on <body> and would survive the swap.
+    document.body.classList.remove('misc-lightbox-open');
+    document.body.classList.remove('ra-modal-open');
+
+    runScripts(container);
+
+    if (typeof window.renderScholarStats === 'function') { window.renderScholarStats(); }
+    if (window.MathJax && window.MathJax.Hub) {
+      window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, container]);
+    }
+
+    var anchor = hash ? document.getElementById(hash.slice(1)) : null;
+    if (typeof restore === 'number') { window.scrollTo(0, restore); }
+    else if (anchor) { anchor.scrollIntoView(); }
+    else { window.scrollTo(0, 0); }
+
+    document.dispatchEvent(new CustomEvent('inpagenav:loaded'));
+  }
+
+  function swap(html, hash, restore) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var fresh = doc.querySelector(CONTENT);
+    var target = document.querySelector(CONTENT);
+    if (!fresh || !target) { return false; }
+
+    target.innerHTML = fresh.innerHTML;
+    if (doc.title) { document.title = doc.title; }
+
+    target.style.transition = '';
+    target.style.opacity = '0';
+    void target.offsetHeight;                    // flush styles so the fade actually runs
+    target.style.transition = 'opacity 0.18s ease';
+    target.style.opacity = '1';
+
+    afterSwap(target, hash, restore);
+    return true;
+  }
+
+  function go(url, push) {
+    var href = url.href;
+    var token = ++pending;
+    var restore = (!push && history.state && typeof history.state.scroll === 'number')
+      ? history.state.scroll
+      : null;
+
+    // Remember where we were, so Back returns to that spot rather than the top.
+    if (push) {
+      history.replaceState({ inpagenav: true, scroll: window.pageYOffset }, '', location.href);
+    }
+
+    function apply(html) {
+      if (token !== pending) { return; }
+      if (!swap(html, url.hash, restore)) { location.assign(href); return; }
+      currentPath = url.pathname;
+      if (push) { history.pushState({ inpagenav: true }, '', href); }
+    }
+
+    if (cache[url.pathname]) { apply(cache[url.pathname]); return; }
+
+    fetch(href, { credentials: 'same-origin' })
+      .then(function (res) {
+        if (!res.ok) { throw new Error(res.status); }
+        return res.text();
+      })
+      .then(function (html) {
+        cache[url.pathname] = html;
+        apply(html);
+      })
+      .catch(function () { location.assign(href); });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 ||
+        e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) { return; }
+
+    var link = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!link) { return; }
+    if (link.hasAttribute('download') || link.hasAttribute('data-no-inpagenav')) { return; }
+    if (link.target && link.target !== '_self') { return; }
+
+    var url;
+    try { url = new URL(link.href, location.href); } catch (err) { return; }
+
+    if (!isSwappable(url)) { return; }
+    if (url.pathname === currentPath) { return; }   // same document: let the hash jump happen natively
+
+    e.preventDefault();
+    go(url, true);
+  });
+
+  window.addEventListener('popstate', function () {
+    var url = new URL(location.href);
+    if (url.pathname === currentPath) {             // hash move inside the current document
+      var anchor = url.hash ? document.getElementById(url.hash.slice(1)) : null;
+      if (anchor) { anchor.scrollIntoView(); } else { window.scrollTo(0, 0); }
+      return;
+    }
+    go(url, false);
+  });
+})();
+</script>
+<script defer="True" src="/assets/js/custom.js"></script></body>
+</html>
