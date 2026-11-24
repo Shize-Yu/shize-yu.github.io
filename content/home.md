@@ -36,9 +36,10 @@ I am fortunate to work with [Yunxin Xu](https://xulab-research.yuque.com/r/organ
 
 <h1 id="-news">📰 News</h1>
 
-- *2026.09*: Our paper “[From single-sequence structure prediction to protein fitness landscape through a composable, epistasis-aware mutation atlas](https://doi.org/10.64898/2026.09.24.753701)” is available on **bioRxiv**!
-- *2026.09*: Our paper “[MutCleaner: Cleaning and Standardizing Biological Mutation Datasets for Variant Effect Prediction](https://doi.org/10.64898/2026.09.06.749687)” is available on **bioRxiv**!
+- *2026.09*: A paper I co-authored, “[From single-sequence structure prediction to protein fitness landscape through a composable, epistasis-aware mutation atlas](https://doi.org/10.64898/2026.09.24.753701),” is now available as a preprint on **bioRxiv**!
+- *2026.09*: A paper I co-authored, “[MutCleaner: Cleaning and Standardizing Biological Mutation Datasets for Variant Effect Prediction](https://doi.org/10.64898/2026.09.06.749687),” is now available as a preprint on **bioRxiv**!
 - *2026.07*: Started remote research with Duanhua Cao's group at Tongji University.
+- *2026.05*: Our team was named a **Finalist** in the 2026 Mathematical Contest in Modeling (**MCM**)!
 
 <details><summary><strong>Earlier News (Click to Expand)</strong></summary><div markdown="1">
 
